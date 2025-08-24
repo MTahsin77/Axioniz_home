@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Header } from '@/components/layout/header'
-import { DollarSign, Shield, TrendingUp, Users, BarChart3, CheckCircle, Zap } from 'lucide-react'
+import { DollarSign, Shield, TrendingUp, Users, BarChart3, CheckCircle, Zap, Lock } from 'lucide-react'
 
 const services = [
   {
