@@ -99,7 +99,10 @@ export default function FinancialServicesPage() {
                 className="group"
               >
                 <div className="bg-muted/30 p-8 rounded-lg hover:shadow-lg transition-all duration-300 h-full border border-border hover:border-[#eb5e28]/30">
-                  <service.icon className="h-12 w-12 text-[#eb5e28] mb-6" />
+                  {(() => {
+                    const IconComponent = service.icon
+                    return <IconComponent className="h-12 w-12 text-[#eb5e28] mb-6" />
+                  })()}
                   <h3 className="text-xl font-semibold text-foreground mb-4">
                     {service.title}
                   </h3>
