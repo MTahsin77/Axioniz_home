@@ -88,7 +88,7 @@ export function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                <div className="flex items-center space-x-2">
+                <nav className="flex flex-col space-y-4 mt-8">
                   <Link href="/" className="flex items-center space-x-2 group">
                     <Logo />
                   </Link>
