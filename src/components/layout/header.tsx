@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Menu } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
+import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Logo } from '@/components/ui/logo'
@@ -87,7 +88,10 @@ export function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                <nav className="flex flex-col space-y-4 mt-8">
+                <div className="flex items-center space-x-2">
+                  <Link href="/" className="flex items-center space-x-2 group">
+                    <Logo />
+                  </Link>
                   {navigation.map((item) => (
                     <a
                       key={item.name}
