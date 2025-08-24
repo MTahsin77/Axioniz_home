@@ -1,0 +1,17 @@
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main logo shape based on the provided image -->
+  <g>
+    <!-- Top left rectangle -->
+    <rect x="178" y="106" width="144" height="80" fill="currentColor"/>
+    
+    <!-- Diagonal slash -->
+    <path d="M178 186 L322 290 L322 186 L250 186 L178 258 Z" fill="currentColor"/>
+    
+    <!-- Bottom right triangle -->
+    <path d="M250 214 L322 214 L322 290 L250 290 Z" fill="currentColor"/>
+    
+    <!-- Text -->
+    <text x="250" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="900" fill="currentColor">AXIONIZ</text>
+    <text x="250" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="400" letter-spacing="4" fill="currentColor">.TECH</text>
+  </g>
+</svg>
