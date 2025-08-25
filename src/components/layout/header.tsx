@@ -58,10 +58,23 @@ export function Header() {
           {/* Logo - Mobile full logo, Desktop center (icon only) */}
           <motion.div className="flex-shrink-0 md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
             <a href="/" className="block">
-              {/* Show full logo on mobile, icon only on desktop */}
-              <div className="md:hidden">
-                <Logo size="sm" showText={true} />
+              {/* Mobile: Show orange logo with text */}
+              <div className="md:hidden flex items-center space-x-2">
+                <div className="w-8 h-8 flex-shrink-0">
+                  <img 
+                    src="/Axioniz-O.svg" 
+                    alt="Axioniz Logo"
+                    className="w-full h-full object-contain"
+                    style={{
+                      filter: 'brightness(0) saturate(100%) invert(42%) sepia(93%) saturate(1352%) hue-rotate(360deg) brightness(100%) contrast(119%)'
+                    }}
+                  />
+                </div>
+                <span className="font-black text-lg tracking-tight text-foreground">
+                  AXIONIZ
+                </span>
               </div>
+              {/* Desktop: Show themed icon only */}
               <div className="hidden md:block">
                 <Logo size="sm" showText={false} />
               </div>
