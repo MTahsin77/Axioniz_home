@@ -12,7 +12,7 @@ function createTransporter() {
     return null
   }
 
-  return nodemailer.createTransporter({
+  return nodemailer.createTransport({
     host: 'smtp.zoho.eu',
     port: 587,
     secure: false, // true for 465, false for other ports
