@@ -58,14 +58,13 @@ export function Header() {
           {/* Logo - Mobile full logo, Desktop center (icon only) */}
           <motion.div className="flex-shrink-0 md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
             <a href="/" className="block">
-              {/* Mobile: Show orange logo with text */}
-              <div className="md:hidden flex items-center space-x-2">
-                <div className="w-8 h-8 flex-shrink-0 rounded-full bg-[#eb5e28] flex items-center justify-center">
-                  <span className="text-white font-black text-lg">O</span>
-                </div>
-                <span className="font-black text-lg tracking-tight text-foreground">
-                  AXIONIZ
-                </span>
+              {/* Mobile: Show actual Axioniz logo only */}
+              <div className="md:hidden">
+                <img 
+                  src="/Axioniz_Logo.png" 
+                  alt="Axioniz Logo"
+                  className="h-8 w-auto object-contain"
+                />
               </div>
               {/* Desktop: Show themed icon only */}
               <div className="hidden md:block">
