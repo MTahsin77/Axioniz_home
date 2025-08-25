@@ -60,15 +60,8 @@ export function Header() {
             <a href="/" className="block">
               {/* Mobile: Show orange logo with text */}
               <div className="md:hidden flex items-center space-x-2">
-                <div className="w-8 h-8 flex-shrink-0">
-                  <img 
-                    src="/Axioniz-O.svg" 
-                    alt="Axioniz Logo"
-                    className="w-full h-full object-contain"
-                    style={{
-                      filter: 'brightness(0) saturate(100%) invert(42%) sepia(93%) saturate(1352%) hue-rotate(360deg) brightness(100%) contrast(119%)'
-                    }}
-                  />
+                <div className="w-8 h-8 flex-shrink-0 rounded-full bg-[#eb5e28] flex items-center justify-center">
+                  <span className="text-white font-black text-lg">O</span>
                 </div>
                 <span className="font-black text-lg tracking-tight text-foreground">
                   AXIONIZ
