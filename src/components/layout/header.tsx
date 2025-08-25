@@ -55,10 +55,16 @@ export function Header() {
             ))}
           </div>
           
-          {/* Logo - Mobile left, Desktop center (icon only) */}
+          {/* Logo - Mobile full logo, Desktop center (icon only) */}
           <motion.div className="flex-shrink-0 md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
             <a href="/" className="block">
-              <Logo size="sm" showText={false} />
+              {/* Show full logo on mobile, icon only on desktop */}
+              <div className="md:hidden">
+                <Logo size="sm" showText={true} />
+              </div>
+              <div className="hidden md:block">
+                <Logo size="sm" showText={false} />
+              </div>
             </a>
           </motion.div>
 
