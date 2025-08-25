@@ -55,21 +55,10 @@ export function Header() {
             ))}
           </div>
           
-          {/* Logo - Mobile full logo, Desktop center (icon only) */}
-          <motion.div className="flex-shrink-0 md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
+          {/* Logo - Desktop only */}
+          <motion.div className="hidden md:block md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
             <a href="/" className="block">
-              {/* Mobile: Show actual Axioniz logo only */}
-              <div className="md:hidden">
-                <img 
-                  src="/Axioniz_Logo.png" 
-                  alt="Axioniz Logo"
-                  className="h-8 w-auto object-contain"
-                />
-              </div>
-              {/* Desktop: Show themed icon only */}
-              <div className="hidden md:block">
-                <Logo size="sm" showText={false} />
-              </div>
+              <Logo size="sm" showText={false} />
             </a>
           </motion.div>
 
@@ -101,9 +90,6 @@ export function Header() {
               <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background/95 backdrop-blur-md border-l border-border/50">
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                 <nav className="flex flex-col space-y-4 mt-8">
-                  <Link href="/" className="flex items-center space-x-2 group mb-4">
-                    <Logo />
-                  </Link>
                   {navigation.map((item) => (
                     <a
                       key={item.name}
