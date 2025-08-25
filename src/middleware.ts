@@ -3,9 +3,14 @@ import { NextResponse, type NextRequest } from 'next/server'
 // Middleware to enforce HTTPS and set security headers
 export function middleware(req: NextRequest) {
   const proto = req.headers.get('x-forwarded-proto')
+  const host = req.headers.get('host')
+  
+  // Skip HTTPS redirect for localhost/development
+  const isLocalhost = host?.includes('localhost') || host?.includes('127.0.0.1') || process.env.NODE_ENV === 'development'
 
   // If request came in over HTTP behind a proxy (e.g., Heroku), redirect to HTTPS
-  if (proto === 'http') {
+  // But only in production, not for localhost
+  if (proto === 'http' && !isLocalhost) {
     const url = new URL(req.url)
     url.protocol = 'https:'
     const redirect = NextResponse.redirect(url, 308)

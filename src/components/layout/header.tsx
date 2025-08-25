@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet'
 import { Logo } from '@/components/ui/logo'
 import { ThemeToggleSmall } from '@/components/ui/theme-toggle-small'
 
@@ -87,21 +87,22 @@ export function Header() {
                   <span className="sr-only">Toggle menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background/95 backdrop-blur-md border-l border-border/50">
+                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                 <nav className="flex flex-col space-y-4 mt-8">
-                  <Link href="/" className="flex items-center space-x-2 group">
+                  <Link href="/" className="flex items-center space-x-2 group mb-4">
                     <Logo />
                   </Link>
                   {navigation.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
-                      className="text-foreground hover:text-[#eb5e28] px-3 py-2 text-base font-medium transition-colors"
+                      className="text-foreground hover:text-[#eb5e28] hover:bg-[#eb5e28]/10 px-4 py-3 text-base font-medium transition-all duration-200 rounded-lg border border-transparent hover:border-[#eb5e28]/20"
                     >
                       {item.name}
                     </a>
                   ))}
-                  <div className="pt-4 border-t border-border">
+                  <div className="pt-4 border-t border-[#eb5e28]/20 mt-6">
                     <ThemeToggleSmall />
                   </div>
                 </nav>

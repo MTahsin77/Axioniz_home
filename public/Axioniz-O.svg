@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.54 65.83">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #eb5e28;
+        font-family: AfacadFlux-Black, 'Afacad Flux';
+        font-size: 60px;
+        font-variation-settings: 'slnt' 0, 'wght' 900;
+        font-weight: 800;
+      }
+    </style>
+  </defs>
+  <text class="cls-1" transform="translate(0 48.75)"><tspan x="0" y="0">O</tspan></text>
+  <text/>
+</svg>

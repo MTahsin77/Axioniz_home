@@ -7,7 +7,6 @@ const footerLinks = [
   { name: 'About', href: '#about' },
   { name: 'Services', href: '#services' },
   { name: 'Industries', href: '#industries' },
-  { name: 'Careers', href: '#consultation' },
   { name: 'Contact Us', href: '#consultation' },
 ]
 
@@ -53,7 +52,7 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="text-center space-y-2 mb-8"
+            className="text-center space-y-4 mb-8"
           >
             <div className="flex items-center justify-center gap-4">
               <a
@@ -64,14 +63,8 @@ export function Footer() {
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
-            <p className="text-muted-foreground font-light">
-              600 California Street, Suite 1200, San Francisco, CA 94108
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-muted-foreground font-light">
-              <a href="tel:+14155551234" className="hover:text-[#eb5e28] transition-colors">
-                +1 (415) 555-1234
-              </a>
-              <a href="mailto:info@axioniz.tech" className="hover:text-[#eb5e28] transition-colors">
+            <div className="flex items-center justify-center">
+              <a href="mailto:info@axioniz.tech" className="text-muted-foreground hover:text-[#eb5e28] transition-colors font-light">
                 info@axioniz.tech
               </a>
             </div>

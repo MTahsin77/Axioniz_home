@@ -11,29 +11,39 @@ export function Hero() {
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down')
   const [lastScrollY, setLastScrollY] = useState(0)
   
-  // Transform scroll values for statistics bars
-  const bar1Y = useTransform(scrollY, [0, 1000], [0, -300])
-  const bar2Y = useTransform(scrollY, [0, 1000], [0, 200])
-  const bar3Y = useTransform(scrollY, [0, 1000], [0, -150])
-  const bar4Y = useTransform(scrollY, [0, 1000], [0, 250])
-  const bar5Y = useTransform(scrollY, [0, 1000], [0, -200])
-  const bar6Y = useTransform(scrollY, [0, 1000], [0, 180])
-  const bar7Y = useTransform(scrollY, [0, 1000], [0, -100])
+  // Transform scroll values for statistics bars - reduced range for mobile performance
+  const bar1Y = useTransform(scrollY, [0, 800], [0, -200])
+  const bar2Y = useTransform(scrollY, [0, 800], [0, 150])
+  const bar3Y = useTransform(scrollY, [0, 800], [0, -100])
+  const bar4Y = useTransform(scrollY, [0, 800], [0, 180])
+  const bar5Y = useTransform(scrollY, [0, 800], [0, -140])
+  const bar6Y = useTransform(scrollY, [0, 800], [0, 120])
+  const bar7Y = useTransform(scrollY, [0, 800], [0, -80])
 
   // Transform for O following scroll
   const oFollowY = useTransform(scrollY, [0, 2000], [0, 800])
 
-  // Handle scroll direction and O behavior
+  // Handle scroll direction and O behavior - optimized for mobile
   useEffect(() => {
+    let ticking = false
     const unsubscribe = scrollY.on("change", (latest) => {
-      const direction = latest > lastScrollY ? 'down' : 'up'
-      setScrollDirection(direction)
-      setLastScrollY(latest)
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const direction = latest > lastScrollY ? 'down' : 'up'
+          setScrollDirection(direction)
+          setLastScrollY(latest)
 
-      if (latest > 50 && direction === 'down' && oPosition !== 'following') {
-        setOPosition('following')
-      } else if (direction === 'up' && oPosition === 'following') {
-        setOPosition('axioniz')
+          // Disable complex O following on mobile for performance
+          if (window.innerWidth > 768) {
+            if (latest > 50 && direction === 'down' && oPosition !== 'following') {
+              setOPosition('following')
+            } else if (direction === 'up' && oPosition === 'following') {
+              setOPosition('axioniz')
+            }
+          }
+          ticking = false
+        })
+        ticking = true
       }
     })
     return () => unsubscribe()
@@ -67,9 +77,9 @@ export function Hero() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1 }}
-        className="absolute top-32 left-1/2 transform -translate-x-1/2 z-20"
+        className="absolute top-16 sm:top-20 md:top-24 lg:top-32 left-1/2 transform -translate-x-1/2 z-20"
       >
-        <div className="text-3xl sm:text-4xl lg:text-6xl font-black tracking-[0.15em]">
+        <div className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-black tracking-[0.15em]">
           <motion.span
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -259,12 +269,12 @@ export function Hero() {
         
       </div>
       
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 md:pt-28 lg:pt-32">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center space-y-12"
+          className="text-center space-y-8 sm:space-y-12"
         >
 
           {/* Main Heading */}
@@ -272,14 +282,15 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl sm:text-7xl lg:text-8xl font-light text-foreground leading-tight tracking-tight"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-light text-foreground leading-tight tracking-tight"
+            style={{ wordBreak: 'keep-all', hyphens: 'none' }}
           >
-            Bespoke <span className="text-[#eb5e28]">techn{oPosition === 'technology' ? (
+            <span className="whitespace-nowrap">Bespoke <span className="text-[#eb5e28]">techn{oPosition === 'technology' ? (
               <motion.span
                 initial={{ opacity: 0, scale: 0, rotate: 180 }}
                 animate={{ opacity: 1, scale: 1, rotate: 0 }}
                 transition={{ 
-                  duration: 1.2,
+                  duration: window.innerWidth > 768 ? 1.2 : 0.8,
                   type: "spring",
                   stiffness: 300,
                   damping: 15
@@ -288,9 +299,10 @@ export function Hero() {
               >
                 o
               </motion.span>
-            ) : 'o'}logy</span> solutions,
+            ) : 'o'}logy</span></span>{' '}
+            <span className="whitespace-nowrap">solutions,</span>
             <br />
-            <span className="font-normal">engineered by <span className="text-[#eb5e28]">experts</span></span>
+            <span className="font-normal whitespace-nowrap">engineered by <span className="text-[#eb5e28]">experts</span></span>
           </motion.h1>
 
           {/* Subtitle */}

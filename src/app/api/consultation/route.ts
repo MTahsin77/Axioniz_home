@@ -36,6 +36,14 @@ export async function POST(request: NextRequest) {
     // Send notification to team
     const teamNotificationResult = await sendTeamNotification(savedConsultation)
     
+    // Log email service status
+    if (!confirmationResult.success) {
+      console.warn('Confirmation email failed:', confirmationResult.message || confirmationResult.error)
+    }
+    if (!teamNotificationResult.success) {
+      console.warn('Team notification failed:', teamNotificationResult.message || teamNotificationResult.error)
+    }
+    
     console.log('Consultation request processed:', {
       id: savedConsultation.id,
       email: savedConsultation.email,

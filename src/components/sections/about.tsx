@@ -23,9 +23,11 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className="text-4xl sm:text-5xl font-light text-foreground mb-8 leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl font-light text-foreground mb-8 leading-tight"
+                style={{ wordBreak: 'keep-all', hyphens: 'none' }}
               >
-                OUR TEAM IS YOUR TEAM
+                <span className="whitespace-nowrap">OUR TEAM</span>{' '}
+                <span className="whitespace-nowrap">IS YOUR TEAM</span>
               </motion.h2>
               
               <motion.div
@@ -55,7 +57,7 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="flex flex-col sm:flex-row gap-4 pt-8"
+                className="flex justify-center sm:justify-start pt-8"
               >
                 <Button 
                   size="lg" 
@@ -65,17 +67,6 @@ export function About() {
                   <a href="#consultation">
                     LEARN MORE ABOUT AXIONIZ
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-                
-                <Button 
-                  variant="outline"
-                  size="lg" 
-                  className="px-8 py-4"
-                  asChild
-                >
-                  <a href="#consultation">
-                    JOIN OUR TEAM
                   </a>
                 </Button>
               </motion.div>

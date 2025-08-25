@@ -9,10 +9,10 @@ interface LogoProps {
 }
 
 const sizeClasses = {
-  sm: 'w-8 h-8',
-  md: 'w-12 h-12', 
-  lg: 'w-16 h-16',
-  xl: 'w-24 h-24'
+  sm: 'w-10 h-10',
+  md: 'w-16 h-16', 
+  lg: 'w-20 h-20',
+  xl: 'w-28 h-28'
 }
 
 const textSizeClasses = {
@@ -28,22 +28,39 @@ export function Logo({ className = '', size = 'md', showText = true }: LogoProps
       {/* Logo Icon */}
       <div className={`${sizeClasses[size]} relative flex items-center justify-center`}>
         <div className="relative w-full h-full">
-          <img
-            src="/Axioniz_Logo.png"
-            alt="Axioniz Logo"
-            className="w-full h-full object-contain mx-auto transition-opacity duration-300 group-hover:opacity-0 dark:invert dark:sepia dark:hue-rotate-[15deg] dark:saturate-[5] dark:brightness-[1.2]"
-          />
-          <div className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{
-            background: '#eb5e28',
-            maskImage: 'url(/Axioniz_Logo.png)',
-            maskSize: 'contain',
-            maskRepeat: 'no-repeat',
-            maskPosition: 'center',
-            WebkitMaskImage: 'url(/Axioniz_Logo.png)',
-            WebkitMaskSize: 'contain',
-            WebkitMaskRepeat: 'no-repeat',
-            WebkitMaskPosition: 'center'
-          }}></div>
+          {/* Default state - black in light mode, white in dark mode */}
+          <div 
+            className="w-full h-full transition-all duration-300 group-hover:opacity-0"
+            style={{
+              maskImage: 'url(/Axioniz-O.svg)',
+              maskSize: 'contain',
+              maskRepeat: 'no-repeat',
+              maskPosition: 'center',
+              WebkitMaskImage: 'url(/Axioniz-O.svg)',
+              WebkitMaskSize: 'contain',
+              WebkitMaskRepeat: 'no-repeat',
+              WebkitMaskPosition: 'center'
+            }}
+          >
+            <div className="w-full h-full bg-black dark:bg-white"></div>
+          </div>
+          
+          {/* Orange hover state */}
+          <div 
+            className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-all duration-300"
+            style={{
+              maskImage: 'url(/Axioniz-O.svg)',
+              maskSize: 'contain',
+              maskRepeat: 'no-repeat',
+              maskPosition: 'center',
+              WebkitMaskImage: 'url(/Axioniz-O.svg)',
+              WebkitMaskSize: 'contain',
+              WebkitMaskRepeat: 'no-repeat',
+              WebkitMaskPosition: 'center'
+            }}
+          >
+            <div className="w-full h-full bg-[#eb5e28]"></div>
+          </div>
         </div>
       </div>
 

@@ -121,4 +121,65 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Prevent aggressive word breaking on mobile */
+  h1, h2, h3, h4, h5, h6 {
+    word-break: keep-all;
+    hyphens: none;
+    overflow-wrap: break-word;
+    white-space: normal;
+  }
+  
+  /* Specific handling for service titles */
+  .service-title {
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    white-space: normal !important;
+    hyphens: none !important;
+    line-break: strict !important;
+  }
+  
+  /* Force no word breaking anywhere */
+  .no-break {
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+    white-space: nowrap !important;
+  }
+  
+  /* Better text handling for long words */
+  .break-long-words {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  /* Optimize mobile performance */
+  @media (max-width: 768px) {
+    * {
+      will-change: auto;
+    }
+    
+    [data-framer-motion] {
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+    
+    /* Prevent word breaking on mobile */
+    h1, h2, h3, h4, h5, h6 {
+      word-break: keep-all;
+      overflow-wrap: normal;
+      hyphens: none;
+      line-break: strict;
+      white-space: normal;
+    }
+    
+    .service-title {
+      word-break: keep-all;
+      overflow-wrap: normal;
+      hyphens: none;
+      white-space: normal;
+      line-break: strict;
+    }
+  }
 }

@@ -8,6 +8,12 @@ const services = [
   {
     number: '01',
     title: 'AI Integration & Implementation',
+    titleFormatted: (
+      <>
+        <span className="whitespace-nowrap">AI Integration</span>{' '}
+        <span className="whitespace-nowrap">& Implementation</span>
+      </>
+    ),
     description: 'Seamlessly integrate cutting-edge AI technologies into your existing workflows and systems.',
     marqueeText: 'AI Integration & Implementation',
     link: '/services/ai-integration'
@@ -15,6 +21,12 @@ const services = [
   {
     number: '02',
     title: 'Custom Software Development',
+    titleFormatted: (
+      <>
+        <span className="whitespace-nowrap">Custom Software</span>{' '}
+        <span className="whitespace-nowrap">Development</span>
+      </>
+    ),
     description: 'Tailored software solutions built to meet your specific business requirements and goals.',
     marqueeText: 'Custom Software Development',
     link: '/services/custom-software-development'
@@ -22,6 +34,12 @@ const services = [
   {
     number: '03',
     title: 'Server Management & Hosting',
+    titleFormatted: (
+      <>
+        <span className="whitespace-nowrap">Server Management</span>{' '}
+        <span className="whitespace-nowrap">& Hosting</span>
+      </>
+    ),
     description: 'Comprehensive server management and hosting solutions to keep your systems running smoothly.',
     marqueeText: 'Server Management & Hosting',
     link: '/services/server-management-hosting'
@@ -29,6 +47,12 @@ const services = [
   {
     number: '04',
     title: 'Customer Support Solutions',
+    titleFormatted: (
+      <>
+        <span className="whitespace-nowrap">Customer Support</span>{' '}
+        <span className="whitespace-nowrap">Solutions</span>
+      </>
+    ),
     description: 'Advanced customer support systems including AI-powered chatbots and help desk solutions.',
     marqueeText: 'Customer Support Solutions',
     link: '/services/customer-support-solutions'
@@ -36,6 +60,12 @@ const services = [
   {
     number: '05',
     title: 'Technology Consulting',
+    titleFormatted: (
+      <>
+        <span className="whitespace-nowrap">Technology</span>{' '}
+        <span className="whitespace-nowrap">Consulting</span>
+      </>
+    ),
     description: 'Strategic technology guidance to help your organization make informed decisions about digital transformation.',
     marqueeText: 'Technology Consulting',
     link: '/services/technology-consulting'
@@ -43,6 +73,12 @@ const services = [
   {
     number: '06',
     title: 'Process Automation',
+    titleFormatted: (
+      <>
+        <span className="whitespace-nowrap">Process</span>{' '}
+        <span className="whitespace-nowrap">Automation</span>
+      </>
+    ),
     description: 'Streamline your business operations with intelligent automation solutions that reduce manual work.',
     marqueeText: 'Process Automation',
     link: '/case-studies/process-automation'
@@ -85,8 +121,17 @@ export function Services() {
                         {service.number}
                       </span>
                     </div>
-                    <h3 className="text-2xl font-bold text-foreground mb-4">
-                      <AnimatedO>{service.title}</AnimatedO>
+                    <h3 
+                      className="text-xl sm:text-2xl font-bold text-foreground mb-4 service-title"
+                      style={{ 
+                        wordBreak: 'keep-all', 
+                        hyphens: 'none', 
+                        overflowWrap: 'normal',
+                        whiteSpace: 'normal',
+                        lineBreak: 'strict'
+                      }}
+                    >
+                      <AnimatedO>{service.titleFormatted || service.title}</AnimatedO>
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
                       <AnimatedO disabled={['01', '02', '03', '04', '05', '06'].includes(service.number)}>{service.description}</AnimatedO>

@@ -1,62 +1,77 @@
-import { Resend } from 'resend'
+import nodemailer from 'nodemailer'
 import { ConsultationData } from './database'
-
-const resend = new Resend(process.env.RESEND_API_KEY)
 
 export interface EmailData extends ConsultationData {
   id: number
 }
 
+// Create reusable transporter object using Zoho SMTP
+function createTransporter() {
+  if (!process.env.ZOHO_EMAIL || !process.env.ZOHO_PASSWORD) {
+    console.warn('Zoho email credentials not configured')
+    return null
+  }
+
+  return nodemailer.createTransporter({
+    host: 'smtp.zoho.eu',
+    port: 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: process.env.ZOHO_EMAIL,
+      pass: process.env.ZOHO_PASSWORD,
+    },
+    tls: {
+      rejectUnauthorized: false
+    }
+  })
+}
+
 export async function sendConfirmationEmail(data: EmailData) {
-  if (!process.env.RESEND_API_KEY) {
-    console.warn('RESEND_API_KEY not configured, skipping confirmation email')
+  const transporter = createTransporter()
+  
+  if (!transporter) {
+    console.warn('Zoho email not configured, skipping confirmation email')
     return { success: false, message: 'Email service not configured' }
   }
 
   try {
-    const { data: emailResult, error } = await resend.emails.send({
-      from: 'Axioniz <noreply@axioniz.tech>',
-      to: [data.email],
+    const mailOptions = {
+      from: `"Axioniz" <${process.env.ZOHO_EMAIL}>`,
+      to: data.email,
       subject: 'Consultation Request Confirmed - Axioniz',
       html: generateConfirmationEmailHTML(data),
-    })
-
-    if (error) {
-      console.error('Email sending error:', error)
-      return { success: false, error }
     }
 
-    console.log('Confirmation email sent:', emailResult?.id)
-    return { success: true, emailId: emailResult?.id }
+    const result = await transporter.sendMail(mailOptions)
+    console.log('Confirmation email sent:', result.messageId)
+    return { success: true, messageId: result.messageId }
   } catch (error) {
-    console.error('Email service error:', error)
+    console.error('Confirmation email failed:', error)
     return { success: false, error }
   }
 }
 
 export async function sendTeamNotification(data: EmailData) {
-  if (!process.env.RESEND_API_KEY || !process.env.TEAM_EMAIL) {
+  const transporter = createTransporter()
+  
+  if (!transporter || !process.env.TEAM_EMAIL) {
     console.warn('Email service or team email not configured, skipping team notification')
     return { success: false, message: 'Team notification not configured' }
   }
 
   try {
-    const { data: emailResult, error } = await resend.emails.send({
-      from: 'Axioniz <noreply@axioniz.tech>',
-      to: [process.env.TEAM_EMAIL],
+    const mailOptions = {
+      from: `"Axioniz" <${process.env.ZOHO_EMAIL}>`,
+      to: process.env.TEAM_EMAIL,
       subject: `New Consultation Request - ${data.firstName} ${data.lastName}`,
       html: generateTeamNotificationHTML(data),
-    })
-
-    if (error) {
-      console.error('Team notification error:', error)
-      return { success: false, error }
     }
 
-    console.log('Team notification sent:', emailResult?.id)
-    return { success: true, emailId: emailResult?.id }
+    const result = await transporter.sendMail(mailOptions)
+    console.log('Team notification sent:', result.messageId)
+    return { success: true, messageId: result.messageId }
   } catch (error) {
-    console.error('Team notification service error:', error)
+    console.error('Team notification failed:', error)
     return { success: false, error }
   }
 }
