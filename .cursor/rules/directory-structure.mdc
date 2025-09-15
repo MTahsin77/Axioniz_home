@@ -1,0 +1,267 @@
+---
+description: Complete directory structure and file organization guide for Axioniz.tech project
+globs: "**/*"
+alwaysApply: true
+---
+
+# Axioniz.tech Directory Structure Guide
+
+This rule documents the complete directory structure and file organization of the Axioniz.tech Next.js project.
+
+## Project Overview
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript 5
+- **Styling**: Tailwind CSS 4
+- **UI Library**: Radix UI + shadcn/ui
+- **Database**: SQLite (dev) / PostgreSQL (prod)
+- **Deployment**: Heroku
+
+## Root Directory Structure
+
+```
+axioniz.tech/
+├── .cursor/                    # Cursor IDE configuration
+│   └── rules/                  # Cursor rules (this file)
+├── data/                       # Database files
+│   └── consultations.db        # SQLite database
+├── public/                     # Static assets
+├── src/                        # Source code
+├── node_modules/               # Dependencies (ignored)
+├── components.json             # shadcn/ui configuration
+├── env.example                 # Environment variables template
+├── eslint.config.mjs           # ESLint configuration
+├── next.config.ts              # Next.js configuration
+├── package.json                # Project dependencies
+├── postcss.config.mjs          # PostCSS configuration
+├── Procfile                    # Heroku deployment config
+├── README.md                   # Project documentation
+├── SETUP_GUIDE.md              # Setup instructions
+└── tsconfig.json               # TypeScript configuration
+```
+
+## Source Directory (`src/`)
+
+### App Directory (`src/app/`) - Next.js 15 App Router
+
+```
+src/app/
+├── admin/                      # Admin dashboard
+│   └── consultations/
+│       └── page.tsx            # Consultation management
+├── api/                        # API routes
+│   ├── admin/
+│   │   └── consultations/
+│   │       └── route.ts        # Admin consultation API
+│   ├── consultation/
+│   │   └── route.ts            # Public consultation API
+│   └── test-email/
+│       └── route.ts            # Email testing endpoint
+├── case-studies/               # Case study pages
+│   ├── ai-integration/
+│   ├── cloud-infrastructure/
+│   ├── development-practices/
+│   ├── digital-transformation/
+│   └── process-automation/
+├── industries/                 # Industry-specific pages
+│   ├── ecommerce-retail/
+│   ├── education-training/
+│   ├── financial-services/
+│   ├── healthcare-medical/
+│   ├── logistics-supply-chain/
+│   └── technology-software/
+├── services/                   # Service pages
+│   ├── ai-integration/
+│   ├── custom-software-development/
+│   ├── customer-support-solutions/
+│   ├── server-management-hosting/
+│   └── technology-consulting/
+├── gdpr/                       # GDPR compliance page
+├── privacy/                    # Privacy policy
+├── terms/                      # Terms of service
+├── globals.css                 # Global styles
+├── layout.tsx                  # Root layout
+├── page.tsx                    # Home page
+└── [icons/favicons]            # App icons and favicons
+```
+
+### Components Directory (`src/components/`)
+
+```
+src/components/
+├── integrations/               # Third-party integrations
+│   ├── analytics.tsx           # Analytics tracking
+│   └── tawk-to.tsx            # Customer support chat
+├── layout/                     # Layout components
+│   ├── footer.tsx             # Site footer
+│   └── header.tsx             # Site header with navigation
+├── providers/                  # Context providers
+│   └── theme-provider.tsx     # Theme management
+├── sections/                   # Page sections
+│   ├── about.tsx              # About section
+│   ├── client-portal.tsx      # Client portal section
+│   ├── consultation.tsx       # Consultation form
+│   ├── hero.tsx               # Hero sections
+│   ├── process.tsx            # Process explanation
+│   ├── products.tsx           # Products showcase
+│   ├── services.tsx           # Services overview
+│   └── testimonials.tsx       # Client testimonials
+├── ui/                        # Reusable UI components (shadcn/ui)
+│   ├── accessibility.tsx      # Accessibility helpers
+│   ├── alert.tsx              # Alert component
+│   ├── animated-o.tsx         # Animated logo component
+│   ├── badge.tsx              # Badge component
+│   ├── button.tsx             # Button variants
+│   ├── calendar.tsx           # Calendar picker
+│   ├── card.tsx               # Card layouts
+│   ├── checkbox.tsx           # Checkbox input
+│   ├── date-picker.tsx        # Date selection
+│   ├── dialog.tsx             # Modal dialogs
+│   ├── error-boundary.tsx     # Error handling
+│   ├── form.tsx               # Form components
+│   ├── input.tsx              # Text inputs
+│   ├── label.tsx              # Form labels
+│   ├── logo.tsx               # Logo component
+│   ├── popover.tsx            # Popover menus
+│   ├── select.tsx             # Select dropdowns
+│   ├── separator.tsx          # Visual separators
+│   ├── sheet.tsx              # Slide-out panels
+│   ├── smooth-scroll.tsx      # Smooth scrolling
+│   ├── textarea.tsx           # Multi-line text input
+│   ├── theme-toggle.tsx       # Theme switcher
+│   └── theme-toggle-small.tsx # Compact theme toggle
+└── calendar-08.tsx            # Custom calendar component
+```
+
+### Library Directory (`src/lib/`)
+
+```
+src/lib/
+├── database-config.ts         # Database configuration
+├── database-postgres.ts       # PostgreSQL setup
+├── database.ts               # SQLite setup
+├── email.ts                  # Email service (Resend)
+└── utils.ts                  # Utility functions
+```
+
+### Other Source Files
+
+```
+src/
+├── fonts/                     # Custom fonts (if any)
+└── middleware.ts              # Next.js middleware
+```
+
+## Public Assets (`public/`)
+
+```
+public/
+├── Axioniz_Logo.png          # Main logo (PNG)
+├── axioniz-logo.svg          # Main logo (SVG)
+├── Axioniz-O.png             # Logo mark (PNG)
+├── Axioniz-O.svg             # Logo mark (SVG)
+├── file.svg                  # File icon
+├── globe.svg                 # Globe icon
+├── next.svg                  # Next.js logo
+├── vercel.svg                # Vercel logo
+└── window.svg                # Window icon
+```
+
+## Key Configuration Files
+
+### Package Management
+- `package.json` - Dependencies and scripts
+- `package-lock.json` - Locked dependency versions
+- `node_modules/` - Installed packages
+
+### TypeScript & Build
+- `tsconfig.json` - TypeScript configuration
+- `next.config.ts` - Next.js build configuration
+- `next-env.d.ts` - Next.js type definitions
+
+### Styling & UI
+- `components.json` - shadcn/ui configuration
+- `postcss.config.mjs` - PostCSS setup for Tailwind
+- `src/app/globals.css` - Global CSS and Tailwind imports
+
+### Code Quality
+- `eslint.config.mjs` - ESLint configuration
+- `.cursorrules` - Cursor IDE rules (project root)
+
+### Environment & Deployment
+- `env.example` - Environment variables template
+- `Procfile` - Heroku deployment configuration
+- `SETUP_GUIDE.md` - Development setup instructions
+
+## File Naming Conventions
+
+### Pages (App Router)
+- `page.tsx` - Route pages
+- `layout.tsx` - Layout components
+- `loading.tsx` - Loading UI (if needed)
+- `error.tsx` - Error UI (if needed)
+
+### API Routes
+- `route.ts` - API endpoint handlers
+
+### Components
+- `kebab-case.tsx` - Component files
+- `PascalCase` - Component names
+- `camelCase` - Props and functions
+
+### Utilities
+- `kebab-case.ts` - Utility files
+- `camelCase` - Function names
+
+## Import Path Aliases
+
+Configured in `components.json`:
+- `@/components` → `src/components`
+- `@/lib` → `src/lib`
+- `@/ui` → `src/components/ui`
+- `@/utils` → `src/lib/utils`
+- `@/hooks` → `src/hooks` (if created)
+
+## Database Structure
+
+### Development
+- `data/consultations.db` - SQLite database file
+- Managed via `src/lib/database.ts`
+
+### Production
+- PostgreSQL database (Heroku)
+- Managed via `src/lib/database-postgres.ts`
+
+## Deployment Files
+
+### Heroku
+- `Procfile` - Defines web process
+- `package.json` engines - Node.js version requirements
+- `heroku-postbuild` script - Build command
+
+## Best Practices
+
+### File Organization
+1. Group related functionality in directories
+2. Use descriptive, consistent naming
+3. Keep components focused and single-purpose
+4. Separate UI components from business logic
+
+### Component Structure
+1. UI primitives in `components/ui/`
+2. Layout components in `components/layout/`
+3. Page sections in `components/sections/`
+4. Third-party integrations in `components/integrations/`
+
+### API Organization
+1. Public APIs in `app/api/`
+2. Admin APIs in `app/api/admin/`
+3. One route per functionality
+4. Use proper HTTP methods and status codes
+
+### Page Structure
+1. App Router pages in `app/[route]/page.tsx`
+2. Group related pages in directories
+3. Use layouts for shared UI elements
+4. Implement proper metadata for SEO
+
+This directory structure supports scalable development, clear separation of concerns, and maintainable code organization for the Axioniz.tech business consulting website.

@@ -1,0 +1,148 @@
+# Cursor Rules for Axioniz.tech
+
+You are an expert TypeScript/React/Next.js developer working on the Axioniz.tech project - a modern business technology consulting website.
+
+## Project Context
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript 5
+- **Styling**: Tailwind CSS 4
+- **UI Components**: Radix UI primitives with shadcn/ui patterns
+- **Animation**: Framer Motion
+- **Database**: SQLite with PostgreSQL support
+- **Email**: Resend API for transactional emails
+- **Deployment**: Heroku-ready with Procfile
+
+## Code Style & Standards
+
+### TypeScript
+- Use strict TypeScript with proper typing
+- Prefer interfaces over types for object shapes
+- Use proper generic constraints and utility types
+- Always define return types for functions
+- Use `const` assertions where appropriate
+
+### React/Next.js
+- Use functional components with hooks
+- Prefer `'use client'` directive only when necessary (client-side features)
+- Use proper Next.js 15 App Router patterns
+- Implement proper error boundaries and loading states
+- Use Next.js Image component for optimized images
+- Follow Next.js metadata API for SEO
+
+### File Structure
+- Follow the established src/ structure
+- Components go in `/src/components/`
+- UI primitives in `/src/components/ui/`
+- Layout components in `/src/components/layout/`
+- Section components in `/src/components/sections/`
+- App routes in `/src/app/`
+- Utilities in `/src/lib/`
+
+### Styling
+- Use Tailwind CSS classes exclusively
+- Follow mobile-first responsive design
+- Use CSS variables for theme colors
+- Implement proper dark/light theme support via next-themes
+- Use Tailwind's built-in spacing, colors, and utilities
+- Prefer utility classes over custom CSS
+
+### Component Patterns
+- Use shadcn/ui component patterns
+- Implement proper accessibility with Radix UI
+- Use Framer Motion for animations with performance in mind
+- Follow the established pattern for form components
+- Use proper loading and error states
+- Implement proper TypeScript props interfaces
+
+### Database & API
+- Use the established SQLite pattern for development
+- Support PostgreSQL for production (Heroku)
+- Implement proper error handling in API routes
+- Use Zod for request validation
+- Follow REST API conventions
+- Use proper HTTP status codes
+
+### Email Integration
+- Use Resend API for all email functionality
+- Follow the established email template patterns
+- Implement proper error handling for email failures
+- Use environment variables for configuration
+
+## Specific Guidelines
+
+### Forms
+- Use react-hook-form with Zod validation
+- Follow the consultation form pattern
+- Implement proper loading and success states
+- Use Radix UI form primitives
+
+### Navigation
+- Maintain the established header/footer pattern
+- Use proper Next.js Link components
+- Implement proper active states
+- Support mobile navigation
+
+### Content Pages
+- Follow the established page structure pattern
+- Use proper motion animations for page transitions
+- Implement consistent hero sections
+- Use proper metadata for SEO
+
+### Icons
+- Use Lucide React icons consistently
+- Use Heroicons for specific UI elements
+- Maintain icon size and style consistency
+
+## Performance
+- Implement proper code splitting
+- Use Next.js Image optimization
+- Minimize client-side JavaScript bundles
+- Use proper loading strategies
+- Implement proper caching strategies
+
+## Security
+- Validate all user inputs with Zod
+- Use proper environment variable handling
+- Implement CSRF protection where needed
+- Follow secure coding practices
+
+## Testing
+- Write unit tests for utility functions
+- Test form validation and submission
+- Test API routes thoroughly
+- Use proper TypeScript for test files
+
+## Environment Variables
+- Use .env.local for local development
+- Reference env.example for required variables
+- Never commit sensitive environment variables
+- Use proper typing for environment variables
+
+## Common Patterns to Follow
+- Consultation form with multi-step validation
+- Service/industry page layouts with hero sections
+- Case study page patterns with metrics
+- Responsive grid layouts
+- Theme-aware components
+- Loading states with proper UX
+- Error boundaries with fallback UI
+
+## Avoid
+- Using any or unknown types
+- Creating custom CSS when Tailwind utilities exist
+- Client-side components when server components suffice
+- Inline styles
+- Hardcoded values that should be configurable
+- Breaking the established component patterns
+- Adding unnecessary dependencies
+
+## When Adding New Features
+1. Follow the established file structure
+2. Use TypeScript with proper typing
+3. Implement responsive design
+4. Add proper loading and error states
+5. Follow accessibility best practices
+6. Use the established component patterns
+7. Test thoroughly before committing
+
+Remember: This is a professional business website focused on technology consulting services. Maintain high code quality, performance, and user experience standards.

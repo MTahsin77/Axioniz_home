@@ -1,0 +1,216 @@
+---
+description: Complete tech stack analysis with versions and best practices for Axioniz.tech
+globs: "package.json"
+alwaysApply: true
+---
+
+# Axioniz.tech Tech Stack & Dependencies Guide
+
+This rule documents the complete technology stack, dependency versions, and best practices for the Axioniz.tech project.
+
+## Core Framework Stack
+
+### Next.js & React
+- **Next.js**: `15.5.0` - Latest stable version with App Router
+- **React**: `19.1.0` - Latest React with concurrent features
+- **React DOM**: `19.1.0` - Matching React version
+- **TypeScript**: `^5` - Latest TypeScript with improved type inference
+
+**Best Practices:**
+- ✅ Using Next.js 15 App Router (modern routing system)
+- ✅ React 19 provides improved performance and developer experience
+- ✅ TypeScript 5 offers better type safety and IDE support
+- ⚠️ Ensure all components use proper React 19 patterns
+
+### Build & Development Tools
+- **Node.js**: `>=18.0.0` - Modern Node.js with ES modules support
+- **npm**: `>=8.0.0` - Package manager with workspaces support
+- **ESLint**: `^9` - Latest ESLint with flat config
+- **ESLint Config Next**: `15.5.0` - Matches Next.js version
+
+**Best Practices:**
+- ✅ Node 18+ provides native fetch and modern JavaScript features
+- ✅ ESLint 9 uses flat config (more performant)
+- ⚠️ Ensure all team members use Node 18+
+
+## Styling & UI Framework
+
+### CSS & Styling
+- **Tailwind CSS**: `^4` - Latest major version with performance improvements
+- **PostCSS**: `@tailwindcss/postcss ^4` - Tailwind-optimized PostCSS
+- **Tailwind Merge**: `^3.3.1` - Utility for merging Tailwind classes
+- **Class Variance Authority**: `^0.7.1` - Component variant management
+
+**Best Practices:**
+- ✅ Tailwind 4 offers improved performance and smaller bundles
+- ✅ CVA provides type-safe component variants
+- ✅ Tailwind Merge prevents class conflicts
+- 📝 Use utility-first approach consistently
+
+### UI Components
+- **Radix UI Primitives**:
+  - `@radix-ui/react-checkbox`: `^1.3.3`
+  - `@radix-ui/react-dialog`: `^1.1.15`
+  - `@radix-ui/react-label`: `^2.1.7`
+  - `@radix-ui/react-popover`: `^1.1.15`
+  - `@radix-ui/react-select`: `^2.2.6`
+  - `@radix-ui/react-separator`: `^1.1.7`
+  - `@radix-ui/react-slot`: `^1.2.3`
+
+- **Headless UI**: `^2.2.7` - Unstyled accessible components
+- **Heroicons**: `^2.2.0` - SVG icon library
+- **Lucide React**: `^0.541.0` - Modern icon library
+
+**Best Practices:**
+- ✅ Radix UI provides excellent accessibility out-of-the-box
+- ✅ Headless UI complements Radix for additional components
+- ✅ Multiple icon libraries provide comprehensive coverage
+- 📝 Prefer Radix UI primitives for complex interactive components
+
+## Animation & Interaction
+
+### Animation Libraries
+- **Framer Motion**: `^12.23.12` - Production-ready animation library
+- **Lottie Files**: `@lottiefiles/dotlottie-react ^0.15.1` - Vector animations
+- **TW Animate CSS**: `^1.3.7` - Tailwind animation utilities
+
+**Best Practices:**
+- ✅ Framer Motion 12+ has improved performance and bundle size
+- ✅ DotLottie provides efficient vector animations
+- ⚠️ Use animations sparingly for better performance
+- 📝 Prefer CSS animations for simple transitions
+
+## Theme & User Experience
+
+### Theme Management
+- **Next Themes**: `^0.4.6` - Theme switching with SSR support
+
+**Best Practices:**
+- ✅ Next Themes handles SSR hydration correctly
+- 📝 Always provide theme toggle for accessibility
+
+## Form Handling & Validation
+
+### Forms & Validation
+- **React Hook Form**: `^7.62.0` - Performant form library
+- **Hookform Resolvers**: `^5.2.1` - Schema validation resolvers
+- **Zod**: `^4.1.0` - TypeScript-first schema validation
+
+**Best Practices:**
+- ✅ React Hook Form provides excellent performance with minimal re-renders
+- ✅ Zod offers runtime type safety and great TypeScript integration
+- ✅ Hookform Resolvers bridge RHF and Zod seamlessly
+- 📝 Always validate on both client and server side
+
+## Date & Time Handling
+
+### Date Management
+- **Date-fns**: `^4.1.0` - Modern date utility library
+- **React Day Picker**: `^9.9.0` - Accessible date picker component
+
+**Best Practices:**
+- ✅ Date-fns is more lightweight than Moment.js
+- ✅ React Day Picker provides excellent accessibility
+- 📝 Use date-fns for all date manipulations instead of native Date
+
+## Database & Backend
+
+### Database Drivers
+- **SQLite**: `^5.1.1` - Development database
+- **SQLite3**: `^5.1.7` - Native SQLite bindings
+- **PostgreSQL (pg)**: `^8.16.3` - Production database driver
+
+### Email Services
+- **Nodemailer**: `^7.0.5` - Email sending library
+
+**Best Practices:**
+- ✅ SQLite for development provides fast iteration
+- ✅ PostgreSQL for production offers scalability
+- ✅ Nodemailer is battle-tested for email delivery
+- 📝 Always use connection pooling for production databases
+- ⚠️ Ensure proper database migration strategy
+
+## Utility Libraries
+
+### General Utilities
+- **clsx**: `^2.1.1` - Conditional className utility
+- **Tailwind Merge**: `^3.3.1` - Tailwind class merging
+
+**Best Practices:**
+- ✅ clsx is lightweight and performant
+- ✅ Tailwind Merge prevents class conflicts
+- 📝 Use these utilities consistently for dynamic classes
+
+## TypeScript Types
+
+### Type Definitions
+- **@types/node**: `^20` - Node.js type definitions
+- **@types/react**: `^19` - React type definitions  
+- **@types/react-dom**: `^19` - React DOM type definitions
+- **@types/nodemailer**: `^7.0.1` - Nodemailer types
+- **@types/pg**: `^8.15.5` - PostgreSQL types
+- **@types/sqlite3**: `^3.1.11` - SQLite3 types
+
+**Best Practices:**
+- ✅ All major dependencies have proper TypeScript support
+- ✅ Type definitions match runtime versions
+- 📝 Always use strict TypeScript configuration
+
+## Development Scripts
+
+### Available Commands
+- `dev`: `next dev --turbopack` - Development with Turbopack
+- `build`: `next build` - Production build
+- `start`: `next start` - Production server
+- `lint`: `eslint` - Code linting
+- `heroku-postbuild`: `npm run build` - Heroku deployment
+
+**Best Practices:**
+- ✅ Turbopack provides faster development builds
+- ✅ Heroku postbuild ensures proper deployment
+- 📝 Run lint before commits
+
+## Version Compatibility Matrix
+
+| Category | Technology | Version | Compatibility | Notes |
+|----------|------------|---------|---------------|-------|
+| Runtime | Node.js | >=18.0.0 | ✅ Excellent | Native fetch, ES modules |
+| Framework | Next.js | 15.5.0 | ✅ Latest | App Router, React 19 support |
+| UI Library | React | 19.1.0 | ✅ Latest | Concurrent features |
+| Language | TypeScript | ^5 | ✅ Latest | Improved inference |
+| Styling | Tailwind | ^4 | ✅ Latest | Performance improvements |
+| Database | PostgreSQL | ^8.16.3 | ✅ Stable | Production ready |
+| Forms | React Hook Form | ^7.62.0 | ✅ Stable | Mature API |
+| Validation | Zod | ^4.1.0 | ✅ Latest | TypeScript-first |
+
+## Upgrade Recommendations
+
+### High Priority
+- 🟢 All dependencies are on latest stable versions
+- 🟢 No critical security vulnerabilities detected
+- 🟢 Framework versions are aligned and compatible
+
+### Medium Priority
+- 📝 Monitor React 19 ecosystem maturity
+- 📝 Watch for Next.js 15 stable feature updates
+- 📝 Consider Tailwind 4 migration best practices
+
+### Low Priority
+- 📝 Evaluate new animation libraries as they mature
+- 📝 Monitor database driver updates for performance improvements
+
+## Security Considerations
+
+### Current Status
+- ✅ Using latest versions with security patches
+- ✅ No known vulnerable dependencies
+- ✅ TypeScript provides compile-time safety
+- ✅ Zod provides runtime validation
+
+### Recommendations
+- 📝 Run `npm audit` regularly
+- 📝 Keep dependencies updated monthly
+- 📝 Use dependabot for automated updates
+- 📝 Validate all user inputs with Zod schemas
+
+This tech stack provides a modern, performant, and maintainable foundation for the Axioniz.tech business consulting website.
