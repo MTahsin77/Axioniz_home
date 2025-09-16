@@ -55,10 +55,17 @@ export function Header() {
             ))}
           </div>
           
-          {/* Logo - Desktop only */}
-          <motion.div className="hidden md:block md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
+          {/* Logo - Desktop centered */}
+          <motion.div className="hidden md:flex md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
             <a href="/" className="block">
-              <Logo size="sm" showText={false} />
+              <Logo size="sm" showText={true} />
+            </a>
+          </motion.div>
+
+          {/* Logo - Mobile */}
+          <motion.div className="md:hidden">
+            <a href="/" className="block">
+              <Logo size="sm" showText={true} />
             </a>
           </motion.div>
 

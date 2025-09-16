@@ -27,41 +27,33 @@ export function Logo({ className = '', size = 'md', showText = true }: LogoProps
     <div className={`flex items-center space-x-3 group ${className}`}>
       {/* Logo Icon */}
       <div className={`${sizeClasses[size]} relative flex items-center justify-center`}>
-        <div className="relative w-full h-full">
-          {/* Default state - black in light mode, white in dark mode */}
-          <div 
-            className="w-full h-full transition-all duration-300 group-hover:opacity-0"
-            style={{
-              maskImage: 'url(/Axioniz-O.svg)',
-              maskSize: 'contain',
-              maskRepeat: 'no-repeat',
-              maskPosition: 'center',
-              WebkitMaskImage: 'url(/Axioniz-O.svg)',
-              WebkitMaskSize: 'contain',
-              WebkitMaskRepeat: 'no-repeat',
-              WebkitMaskPosition: 'center'
-            }}
+        <motion.div 
+          className="relative w-full h-full"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.2 }}
+        >
+          {/* Geometric logo icon using the proper brand design */}
+          <svg
+            className="w-full h-full transition-all duration-300 text-foreground group-hover:text-[#eb5e28]"
+            viewBox="0 0 100 100"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <div className="w-full h-full bg-black dark:bg-white"></div>
-          </div>
-          
-          {/* Orange hover state */}
-          <div 
-            className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-all duration-300"
-            style={{
-              maskImage: 'url(/Axioniz-O.svg)',
-              maskSize: 'contain',
-              maskRepeat: 'no-repeat',
-              maskPosition: 'center',
-              WebkitMaskImage: 'url(/Axioniz-O.svg)',
-              WebkitMaskSize: 'contain',
-              WebkitMaskRepeat: 'no-repeat',
-              WebkitMaskPosition: 'center'
-            }}
-          >
-            <div className="w-full h-full bg-[#eb5e28]"></div>
-          </div>
-        </div>
+            {/* Top horizontal bar */}
+            <rect x="20" y="25" width="60" height="12" rx="2" fill="currentColor"/>
+            
+            {/* Middle diagonal slash */}
+            <path d="M25 45 L75 45 L75 57 L65 57 L35 75 L25 75 Z" fill="currentColor"/>
+            
+            {/* Bottom right block */}
+            <rect x="45" y="65" width="30" height="12" rx="2" fill="currentColor"/>
+            
+            {/* Connecting elements */}
+            <circle cx="30" cy="31" r="3" fill="currentColor"/>
+            <circle cx="70" cy="31" r="3" fill="currentColor"/>
+            <circle cx="50" cy="71" r="3" fill="currentColor"/>
+          </svg>
+        </motion.div>
       </div>
 
       {/* Logo Text */}

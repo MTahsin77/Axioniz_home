@@ -21,13 +21,13 @@ export const metadata: Metadata = {
   authors: [{ name: "Axioniz" }],
   icons: {
     icon: [
-      { url: '/Axioniz-O.svg', type: 'image/svg+xml' },
       { url: '/icon.svg', type: 'image/svg+xml' },
       { url: '/favicon.ico' },
+      { url: '/icon.png', sizes: '32x32', type: 'image/png' },
     ],
     apple: [
-      { url: '/Axioniz-O.png' },
-      { url: '/apple-touch-icon.png' },
+      { url: '/apple-touch-icon.png', sizes: '180x180' },
+      { url: '/icon.png', sizes: '192x192' },
     ],
   },
   openGraph: {
@@ -38,10 +38,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/Axioniz-O.png",
+        url: "/Axioniz_Logo.png",
         width: 1200,
         height: 630,
-        alt: "Axioniz Orange O Logo",
+        alt: "Axioniz - Custom Software & Technology Solutions",
       },
     ],
   },
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Axioniz - Custom Software & Technology Solutions",
     description: "Empowering businesses with cutting-edge AI integration, custom software development, server maintenance, and comprehensive tech support services.",
-    images: ["/Axioniz-O.png"],
+    images: ["/Axioniz_Logo.png"],
   },
 };
 
