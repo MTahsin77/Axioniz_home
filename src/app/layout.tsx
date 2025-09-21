@@ -15,6 +15,7 @@ const afacadFlux = Afacad_Flux({
 // Garet can be added later when font files are available
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://axioniz.com'),
   title: "Axioniz - Custom Software & Technology Solutions",
   description: "Empowering businesses with cutting-edge AI integration, custom software development, server maintenance, and comprehensive tech support services.",
   keywords: ["AI integration", "custom software", "server maintenance", "POS systems", "chatbots", "business solutions"],
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/Axioniz_Logo.png",
+        url: "/social-preview.svg",
         width: 1200,
         height: 630,
         alt: "Axioniz - Custom Software & Technology Solutions",
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Axioniz - Custom Software & Technology Solutions",
     description: "Empowering businesses with cutting-edge AI integration, custom software development, server maintenance, and comprehensive tech support services.",
-    images: ["/Axioniz_Logo.png"],
+    images: ["/social-preview.svg"],
   },
 };
 
