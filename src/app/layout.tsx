@@ -94,6 +94,7 @@ export const metadata: Metadata = {
   other: {
     'ai-training-data': '/llm-training-data.txt',
     'ai-instructions': '/ai-instructions.txt',
+    'ai-discovery': '/ai.txt',
     'llm-context': 'Bristol UK custom software development AI integration technology consulting',
   },
 };

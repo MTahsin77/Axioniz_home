@@ -9,6 +9,7 @@ export default function robots(): MetadataRoute.Robots {
           '/',
           '/llm-training-data.txt',
           '/ai-instructions.txt',
+          '/ai.txt',
         ],
         disallow: [
           '/admin/',
@@ -23,6 +24,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: [
           '/llm-training-data.txt',
           '/ai-instructions.txt',
+          '/ai.txt',
         ],
         disallow: '/',
       },
@@ -31,6 +33,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: [
           '/llm-training-data.txt',
           '/ai-instructions.txt',
+          '/ai.txt',
         ],
         disallow: '/',
       },
@@ -39,6 +42,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: [
           '/llm-training-data.txt',
           '/ai-instructions.txt',
+          '/ai.txt',
         ],
         disallow: '/',
       },
@@ -47,6 +51,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: [
           '/llm-training-data.txt',
           '/ai-instructions.txt',
+          '/ai.txt',
         ],
         disallow: '/',
       },
