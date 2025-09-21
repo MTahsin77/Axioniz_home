@@ -20,51 +20,28 @@ const consultationSchema = z.object({
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    console.log('Received consultation request:', body)
+    
+    // Initialize database (important for PostgreSQL on first run)
+    await initializeDatabase()
     
     // Validate the request body
     const validatedData = consultationSchema.parse(body)
-    console.log('Validation successful:', validatedData)
-    
-    // Initialize database (important for PostgreSQL on first run)
-    try {
-      await initializeDatabase()
-      console.log('Database initialized')
-    } catch (dbError) {
-      console.error('Database initialization error:', dbError)
-      // Continue without database for now
-    }
     
     // Save to database
-    let savedConsultation
-    try {
-      savedConsultation = await saveConsultation(validatedData)
-      console.log('Consultation saved:', savedConsultation.id)
-    } catch (dbError) {
-      console.error('Database save error:', dbError)
-      // Create a mock response for now
-      savedConsultation = {
-        id: Date.now(),
-        ...validatedData,
-        status: 'pending',
-        createdAt: new Date().toISOString()
-      }
-    }
+    const savedConsultation = await saveConsultation(validatedData)
     
-    // Send confirmation email to client (skip for now to avoid errors)
-    let confirmationResult = { success: false, message: 'Email service disabled for debugging' }
-    try {
-      confirmationResult = await sendConfirmationEmail(savedConsultation)
-    } catch (emailError) {
-      console.error('Email error:', emailError)
-    }
+    // Send confirmation email to client
+    const confirmationResult = await sendConfirmationEmail(savedConsultation)
     
-    // Send notification to team (skip for now)
-    let teamNotificationResult = { success: false, message: 'Team notification disabled for debugging' }
-    try {
-      teamNotificationResult = await sendTeamNotification(savedConsultation)
-    } catch (emailError) {
-      console.error('Team notification error:', emailError)
+    // Send notification to team
+    const teamNotificationResult = await sendTeamNotification(savedConsultation)
+    
+    // Log email service status
+    if (!confirmationResult.success) {
+      console.warn('Confirmation email failed:', confirmationResult.message || confirmationResult.error)
+    }
+    if (!teamNotificationResult.success) {
+      console.warn('Team notification failed:', teamNotificationResult.message || teamNotificationResult.error)
     }
     
     console.log('Consultation request processed:', {
@@ -107,8 +84,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         success: false,
-        message: `Internal server error: ${error instanceof Error ? error.message : 'Unknown error'}`,
-        error: error instanceof Error ? error.stack : String(error)
+        message: 'Internal server error',
       },
       { status: 500 }
     )
