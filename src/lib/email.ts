@@ -78,7 +78,7 @@ export async function sendTeamNotification(data: EmailData) {
 
 function generateConfirmationEmailHTML(data: EmailData): string {
   const baseUrl = process.env.NODE_ENV === 'production' 
-    ? 'https://axioniz.tech' 
+    ? 'https://axioniz.com' 
     : 'http://localhost:3000'
 
   return `

@@ -64,8 +64,8 @@ export function Footer() {
               </a>
             </div>
             <div className="flex items-center justify-center">
-              <a href="mailto:info@axioniz.tech" className="text-muted-foreground hover:text-[#eb5e28] transition-colors font-light">
-                info@axioniz.tech
+              <a href="mailto:info@axioniz.com" className="text-muted-foreground hover:text-[#eb5e28] transition-colors font-light">
+                info@axioniz.com
               </a>
             </div>
           </motion.div>

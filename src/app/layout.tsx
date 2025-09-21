@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Axioniz - Custom Software & Technology Solutions",
     description: "Empowering businesses with cutting-edge AI integration, custom software development, server maintenance, and comprehensive tech support services.",
-    url: "https://axioniz.tech",
+    url: "https://axioniz.com",
     siteName: "Axioniz",
     type: "website",
     images: [

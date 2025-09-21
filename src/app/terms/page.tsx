@@ -124,7 +124,7 @@ export default function TermsOfService() {
                   </p>
                   <Card className="bg-muted/50">
                     <CardContent className="pt-4">
-                      <p className="text-foreground font-medium">Email: legal@axioniz.tech</p>
+                      <p className="text-foreground font-medium">Email: legal@axioniz.com</p>
                       <p className="text-foreground font-medium">Phone: +1 (555) 123-4567</p>
                     </CardContent>
                   </Card>

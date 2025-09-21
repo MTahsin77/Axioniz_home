@@ -1,6 +1,6 @@
 # Axioniz Consultation Backend Setup Guide
 
-This guide will walk you through setting up the complete consultation form backend functionality for your Axioniz.tech website.
+This guide will walk you through setting up the complete consultation form backend functionality for your Axioniz.com website.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ cp env.example .env.local
 3. **Add to .env.local**:
 ```env
 RESEND_API_KEY=re_your_actual_api_key_here
-TEAM_EMAIL=your-team-email@axioniz.tech
+TEAM_EMAIL=your-team-email@axioniz.com
 ```
 
 ### 1.3 Domain Verification (For Production)
@@ -43,7 +43,7 @@ For production emails, you'll need to verify your domain:
 
 1. In Resend dashboard, go to "Domains"
 2. Click "Add Domain"
-3. Enter your domain (e.g., `axioniz.tech`)
+3. Enter your domain (e.g., `axioniz.com`)
 4. Follow the DNS setup instructions
 5. Wait for verification (usually takes a few minutes)
 

@@ -121,7 +121,7 @@ export default function GDPRNotice() {
                   </p>
                   <Card className="bg-muted/50">
                     <CardContent className="pt-4">
-                      <p className="text-foreground font-medium">Email: gdpr@axioniz.tech</p>
+                      <p className="text-foreground font-medium">Email: gdpr@axioniz.com</p>
                       <p className="text-foreground font-medium">Phone: +1 (555) 123-4567</p>
                       <Alert className="mt-4">
                         <AlertDescription className="text-sm">

@@ -276,7 +276,7 @@ export default function PrivacyPolicy() {
                         <Mail className="w-5 h-5 text-[#eb5e28]" />
                         <span className="font-medium text-gray-900 dark:text-white">Email</span>
                       </div>
-                      <p className="text-gray-700 dark:text-gray-300">privacy@axioniz.tech</p>
+                      <p className="text-gray-700 dark:text-gray-300">privacy@axioniz.com</p>
                     </div>
                     <div className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 p-4 rounded-lg">
                       <div className="flex items-center gap-3 mb-2">
