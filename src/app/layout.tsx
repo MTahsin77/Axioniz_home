@@ -4,6 +4,7 @@ import './globals.css'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { Analytics } from '@/components/integrations/analytics'
 import { TawkTo } from '@/components/integrations/tawk-to'
+import { GoogleAds } from '@/components/integrations/google-ads'
 import { StructuredData } from '@/components/seo/structured-data'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
@@ -115,10 +116,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <StructuredData />
-          {children}
-          <Analytics />
-          <TawkTo />
-          <SpeedInsights />
+              {children}
+              <Analytics />
+              <TawkTo />
+              <GoogleAds />
+              <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>

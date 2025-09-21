@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { trackEnhancedConversion } from '@/components/integrations/google-ads'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -175,6 +176,14 @@ export function Consultation() {
       const result = await response.json()
 
       if (response.ok && result.success) {
+        // Track Google Ads conversion
+        trackEnhancedConversion({
+          email: data.email,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          phone: data.phone
+        })
+        
         // Show success screen
         setIsSubmitted(true)
         setValidationError('') // Clear any previous errors
