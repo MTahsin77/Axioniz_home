@@ -21,13 +21,13 @@ export const metadata: Metadata = {
   authors: [{ name: "Axioniz" }],
   icons: {
     icon: [
-      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-square.svg', type: 'image/svg+xml' },
       { url: '/favicon.ico' },
-      { url: '/icon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/Axioniz-O.png', sizes: '32x32', type: 'image/png' },
     ],
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180' },
-      { url: '/icon.png', sizes: '192x192' },
+      { url: '/Axioniz-O.png', sizes: '192x192' },
     ],
   },
   openGraph: {

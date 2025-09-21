@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="axioniz-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <defs>
     <style>
-      .icon-text {
+      .favicon-o {
         fill: #eb5e28;
         font-family: 'Afacad Flux', system-ui, sans-serif;
         font-size: 28px;
@@ -12,6 +12,6 @@
       }
     </style>
   </defs>
-  <!-- Centered O for app icon -->
-  <text class="icon-text" x="16" y="16">O</text>
+  <!-- Centered O for favicon -->
+  <text class="favicon-o" x="16" y="16">O</text>
 </svg>
