@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/components/providers/theme-provider'
 import { Analytics } from '@/components/integrations/analytics'
 import { TawkTo } from '@/components/integrations/tawk-to'
 import { StructuredData } from '@/components/seo/structured-data'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const afacadFlux = Afacad_Flux({
   subsets: ['latin'],
@@ -117,6 +118,7 @@ export default function RootLayout({
           {children}
           <Analytics />
           <TawkTo />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
