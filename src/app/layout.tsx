@@ -4,6 +4,7 @@ import './globals.css'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { Analytics } from '@/components/integrations/analytics'
 import { TawkTo } from '@/components/integrations/tawk-to'
+import { StructuredData } from '@/components/seo/structured-data'
 
 const afacadFlux = Afacad_Flux({
   subsets: ['latin'],
@@ -16,10 +17,30 @@ const afacadFlux = Afacad_Flux({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://axioniz.com'),
-  title: "Axioniz - Custom Software & Technology Solutions",
-  description: "Empowering businesses with cutting-edge AI integration, custom software development, server maintenance, and comprehensive tech support services.",
-  keywords: ["AI integration", "custom software", "server maintenance", "POS systems", "chatbots", "business solutions"],
+  title: "Axioniz - Custom Software Development & AI Integration Bristol UK | Technology Solutions",
+  description: "Leading custom software development company in Bristol, UK. Expert AI integration, bespoke software solutions, server management & tech consulting. Serving Bristol, London & UK-wide. Get your free consultation today.",
+  keywords: [
+    // Local SEO keywords
+    "custom software development Bristol", "AI integration Bristol UK", "software company Bristol", 
+    "tech consulting Bristol", "bespoke software development Bristol", "IT support Bristol",
+    "web development Bristol", "software solutions Bristol", "technology consulting Bristol",
+    
+    // Service-specific keywords
+    "custom software development", "AI integration services", "machine learning development",
+    "business automation", "enterprise software solutions", "cloud migration services",
+    "server management", "IT infrastructure", "digital transformation",
+    
+    // Industry keywords
+    "fintech software development", "healthcare software solutions", "ecommerce development",
+    "logistics software", "retail technology", "education technology",
+    
+    // Technical keywords
+    "React development", "Node.js development", "Python development", "cloud computing",
+    "API development", "database design", "cybersecurity", "DevOps services"
+  ],
   authors: [{ name: "Axioniz" }],
+  category: "Technology Services",
+  classification: "Business Technology Solutions",
   icons: {
     icon: [
       { url: '/favicon-square.svg', type: 'image/svg+xml' },
@@ -32,11 +53,12 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Axioniz - Custom Software & Technology Solutions",
-    description: "Empowering businesses with cutting-edge AI integration, custom software development, server maintenance, and comprehensive tech support services.",
+    title: "Axioniz - Custom Software Development & AI Integration Bristol UK",
+    description: "Leading custom software development company in Bristol, UK. Expert AI integration, bespoke software solutions, server management & tech consulting. Serving Bristol, London & UK-wide.",
     url: "https://axioniz.com",
     siteName: "Axioniz",
     type: "website",
+    locale: "en_GB",
     images: [
       {
         url: "/social-preview.svg",
@@ -48,9 +70,26 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Axioniz - Custom Software & Technology Solutions",
-    description: "Empowering businesses with cutting-edge AI integration, custom software development, server maintenance, and comprehensive tech support services.",
+    title: "Axioniz - Custom Software Development & AI Integration Bristol UK",
+    description: "Leading custom software development company in Bristol, UK. Expert AI integration, bespoke software solutions, server management & tech consulting.",
     images: ["/social-preview.svg"],
+    creator: "@axioniz",
+    site: "@axioniz",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: "your-google-site-verification-code", // You'll need to add this
+    // bing: "your-bing-verification-code", // Optional
   },
 };
 
@@ -68,6 +107,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <StructuredData />
           {children}
           <Analytics />
           <TawkTo />
