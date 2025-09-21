@@ -7,22 +7,31 @@ export const usePostgreSQL = false && process.env.DATABASE_URL !== undefined
 // Import functions from appropriate database module
 import * as sqliteDb from './database'
 import * as postgresDb from './database-postgres'
+import * as memoryDb from './database-memory'
 
 export type ConsultationData = sqliteDb.ConsultationData
 
 // Export the appropriate database functions based on environment
 export const initializeDatabase = usePostgreSQL 
   ? postgresDb.initializeDatabase 
-  : async () => { console.log('Using SQLite database (development mode)') }
+  : isDevelopment 
+    ? async () => { console.log('Using SQLite database (development mode)') }
+    : memoryDb.initializeDatabase
 
 export const saveConsultation = usePostgreSQL 
   ? postgresDb.saveConsultation 
-  : sqliteDb.saveConsultation
+  : isDevelopment 
+    ? sqliteDb.saveConsultation
+    : memoryDb.saveConsultation
 
 export const getConsultations = usePostgreSQL 
   ? postgresDb.getConsultations 
-  : sqliteDb.getConsultations
+  : isDevelopment 
+    ? sqliteDb.getConsultations
+    : memoryDb.getConsultations
 
 export const updateConsultationStatus = usePostgreSQL 
   ? postgresDb.updateConsultationStatus 
-  : sqliteDb.updateConsultationStatus
+  : isDevelopment 
+    ? sqliteDb.updateConsultationStatus
+    : memoryDb.updateConsultationStatus
