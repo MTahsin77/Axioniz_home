@@ -1,7 +1,8 @@
 // Database configuration that switches between SQLite (development) and PostgreSQL (production)
 
 export const isDevelopment = process.env.NODE_ENV !== 'production'
-export const usePostgreSQL = process.env.DATABASE_URL !== undefined
+// Force SQLite usage for now (can be changed later when PostgreSQL is set up)
+export const usePostgreSQL = false && process.env.DATABASE_URL !== undefined
 
 // Import functions from appropriate database module
 import * as sqliteDb from './database'
